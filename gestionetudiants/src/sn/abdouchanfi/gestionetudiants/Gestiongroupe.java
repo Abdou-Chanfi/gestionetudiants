@@ -9,7 +9,7 @@ package sn.abdouchanfi.gestionetudiants;
  *
  * @author EL REY LUCCHEZE
  */
-public class Gestiongroupe {
+public class Gestiongroupe  {
   private int id;
     private String nomGroupe;
     private String date_creation;

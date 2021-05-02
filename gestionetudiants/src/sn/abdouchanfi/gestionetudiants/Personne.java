@@ -29,9 +29,9 @@ public abstract class Personne {
         this.password = password;
     }
 
-    public Personne() {
+   /* public Personne() {
 
-    }
+    }*/
 
     
     public int getId() {

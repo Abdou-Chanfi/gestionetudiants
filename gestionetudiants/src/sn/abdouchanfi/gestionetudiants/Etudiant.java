@@ -18,9 +18,9 @@ public class Etudiant extends Personne {
         this.identifiant_etudiant = identifiant_etudiant;
     }
 
-    public Etudiant(int id, String nom, String prenom, String adresse, String tel, String login, String password) {
+   /* public Etudiant(int id, String nom, String prenom, String adresse, String tel, String login, String password) {
 
-    }
+    }*/
 
     public String getIdentifiant_etudiant() {
         return identifiant_etudiant;
@@ -41,6 +41,15 @@ public class Etudiant extends Personne {
     public void getIdentifiant_etudiant(String identifiant_etudiant) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+	@Override
+	public String toString() {
+		return "Etudiant [identifiant_etudiant=" + identifiant_etudiant + ", getIdentifiant_etudiant()="
+				+ getIdentifiant_etudiant() + ", getId()=" + getId() + ", getNom()=" + getNom() + ", getPrenom()="
+				+ getPrenom() + ", getAdresse()=" + getAdresse() + ", getTel()=" + getTel() + ", getLogin()="
+				+ getLogin() + ", getPassword()=" + getPassword() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
+	}
 
    
     

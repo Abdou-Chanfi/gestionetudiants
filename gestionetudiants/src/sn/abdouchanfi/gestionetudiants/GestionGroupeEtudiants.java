@@ -9,8 +9,15 @@ package sn.abdouchanfi.gestionetudiants;
  *
  * @author EL REY LUCCHEZE
  */
-public class GestionGroupeEtudiants {
-  private int id;
+public class GestionGroupeEtudiants extends Gestiongroupe {
+  
+
+public GestionGroupeEtudiants(int id, String nomGroupe, String date_creation) {
+		super(id, nomGroupe, date_creation);
+		// TODO Auto-generated constructor stub
+	}
+
+private int id;
     private String nomGroupeEtuiants;
     private String date_creation;
 
@@ -38,11 +45,15 @@ public class GestionGroupeEtudiants {
         this.date_creation = date_creation;
     }
 
-    @Override
-    public String toString() {
-        return "Groupe{" + "id=" + id + ", nomGroupe=" + nomGroupeEtuiants + ", date_creation=" + date_creation + '}';
-     //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public String toString() {
+		return "GestionGroupeEtudiants [id=" + id + ", nomGroupeEtuiants=" + nomGroupeEtuiants + ", date_creation="
+				+ date_creation + ", getId()=" + getId() + ", getNomGroupe()=" + getNomGroupe()
+				+ ", getDate_creation()=" + getDate_creation() + ", toString()=" + super.toString() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + "]";
+	}
+
+    
 
     
 }

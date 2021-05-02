@@ -25,6 +25,15 @@ public class GestionProfesseurs extends Personne {
     public void setSalaire(String salaire) {
         this.salaire = salaire;
     }
+
+	@Override
+	public String toString() {
+		return "GestionProfesseurs [salaire=" + salaire + ", getSalaire()=" + getSalaire() + ", getId()=" + getId()
+				+ ", getNom()=" + getNom() + ", getPrenom()=" + getPrenom() + ", getAdresse()=" + getAdresse()
+				+ ", getTel()=" + getTel() + ", getLogin()=" + getLogin() + ", getPassword()=" + getPassword()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
   
 
   

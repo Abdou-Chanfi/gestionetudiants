@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 import sn.abdouchanfi.gestionetudiants.Etudiant;
+import sn.abdouchanfi.gestionetudiants.GestionGroupeEtudiants;
 import sn.abdouchanfi.gestionetudiants.GestionProfesseurs;
 import sn.abdouchanfi.gestionetudiants.Gestiongroupe;
 import sn.abdouchanfi.gestionetudiants.imp.EtudiantImp;
@@ -143,10 +144,10 @@ public class test {
                      System.out.println("Afficher Groupe");
                        
                       List<Gestiongroupe> grou = gestGrpImp.getAll();
-                      grou.forEach((gro3) -> {
+                      for(Gestiongroupe gro3:grou) {
                           System.out.println("ID: "+gro3.getId()+" Prenom: "+gro3.getNomGroupe()+","+
                                   " Date Creation: "+gro3.getDate_creation());
-                    });
+                    };
                     break;
 
                 
@@ -211,7 +212,7 @@ public class test {
                        
                        String password = scanner.next();
                        
-                       Etudiant etudiant = new Etudiant(id, nom, prenom, adresse, tel, login, password);
+                       Etudiant etudiant = new Etudiant(nom, id, nom, prenom, adresse, tel, login, password);
                        
                        etuImp.add(etudiant);
                        System.out.println(" Etudiant ajouter avec succés");
@@ -278,12 +279,12 @@ public class test {
                         
                        
                        List<Etudiant> etude = etuImp.getAll();
-                       etude.forEach((etudiants4) -> {
+                       for(Etudiant etudiants4:etude) {
                            System.out.println(etudiants4.getId()+","+etudiants4.getNom()+","+
                                    etudiants4.getPrenom()+","+etudiants4.getAdresse()+","+
                                    etudiants4.getTel()+","+etudiants4.getLogin()+","+
                                    etudiants4.getPassword());
-                    });
+                    };
                break;
 
                     case 6:
@@ -390,6 +391,11 @@ public class test {
                    break;
                     case 3 :
                        System.out.println("voir les détails professeur");
+                       
+                       System.out.println(" ID :");
+                       int IdShow =scanner.nextInt();
+                       GestionProfesseurs gestProShow = profImp.getById(IdShow);
+                       System.out.println(gestProShow.toString());
                    break;
                     case 4 :
                         System.out.println("supprimer professeur");
@@ -403,12 +409,12 @@ public class test {
                     case 5 :
                       System.out.println("afficher tous les professeur");
                        List<GestionProfesseurs> profe = profImp.getAll();
-                       profe.forEach((Gestprof4) -> {
+                       for(GestionProfesseurs Gestprof4:profe) {
                            System.out.println(Gestprof4.getId()+","+Gestprof4.getNom()+","+
                                    Gestprof4.getPrenom()+","+Gestprof4.getAdresse()+","+
                                    Gestprof4.getTel()+","+Gestprof4.getLogin()+","+
                                    Gestprof4.getPassword());
-                    });
+                    };
                    break;
 
                     case 6 :
@@ -421,13 +427,104 @@ public class test {
                }
                break;
             case 4:
+            	
+            	boolean variable4 = true;
+                while (variable4){
                 System.out.println("------------Gestion Groupe-Etudiant------------");
-                break;  
+                
+                System.out.println("1-Modifier les groupes d'etudiants ");
+                System.out.println("2-Voir les les groupes d'etudiants ");
+                System.out.println("3-Suprimer les groupes d'etudiants ");
+                System.out.println("4-Afficher tous les groupes d'etudiants ");
+                System.out.println("5-Quitter ");
+                
+             
+                
+                 System.out.println("choix : ");
+       
+               int choixGestionGroupeEtudiants  = scanner.nextInt();
+               switch(choixGestionGroupeEtudiants)
+               {
+               
+               case 1:
+                   System.out.println("Modifier groupe");
+                   
+                   System.out.println(" ID :");
+                   
+                   int IdMod = scanner.nextInt();
+                   GestionGroupeEtudiants gestGrp = gestGrpEtuImp.getById(IdMod);
+                   
+                   System.out.println("Nom du groupe :");
+                   String NomGr = scanner.next();
+                   gestGrp.setNomGroupe(NomGr);
+                   
+                   System.out.println("Date : :");
+                   String DateGr = scanner.next();
+                   gestGrp.setDate_creation(DateGr);
+
+                   GestionGroupeEtudiants gr = gestGrpEtuImp.getById(IdMod);
+                   gestGrpEtuImp.update(gr);
+                   System.out.println("Modification reussis");
+              
+               break;
+
+                
+                
+            case 2:
+                System.out.println("3- Voir les details d'un Groupe");
+                
+                System.out.println(" ID :");
+                
+                int IdShow = scanner.nextInt();
+                GestionGroupeEtudiants grpShow = gestGrpEtuImp.getById(IdShow);
+                
+                System.out.println(grpShow.toString());
+                
+                break;
+            
+            case 3:
+                System.out.println("4- Supprimer un Groupe");
+                System.out.println("Supprimer Groupe ");
+                   
+                   System.out.println(" ID :");
+                   
+                   int IdSup = scanner.nextInt();
+                   GestionGroupeEtudiants grou2 = gestGrpEtuImp.getById(IdSup);
+                   gestGrpEtuImp.delete(grou2);
+                   System.out.println("Suppression reussis");
+              
+                break;
+            
+            case 4:
+                System.out.println("5- Afficher tous les Groupe");
+                 System.out.println("Afficher Groupe");
+                   
+                  List<GestionGroupeEtudiants> grou = gestGrpEtuImp.getAll();
+                  for(GestionGroupeEtudiants gro3:grou) {
+                      System.out.println("ID: "+gro3.getId()+" Prenom: "+gro3.getNomGroupe()+","+
+                              " Date Creation: "+gro3.getDate_creation());
+                };
+                break;
+
+            
+            case 5:
+                System.out.println("6- Quitter");
+                variable1 = false ;
+                variable= true ;
+                break;
+            default:
+            System.out.println("Le choix est invalide");
+            break;
+            }
+            }
+            break;
+               
+               
                 
             case 5:
                 System.out.println("------------Quitter------------");
                  
-               System.out.println("*****************A LA PROCHAINE1***********************"); 
+               System.out.println("*****************AU REVOIR***********************"); 
                System.exit(0);
                
                 break;  
